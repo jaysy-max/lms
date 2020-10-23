@@ -6,9 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="" style="height: 50px; width: 50px;  display: inline-block;">
-                        <a href="{{ route('admin.rooms.index') }}"><img src="/svg/back.svg" style="max-height: 30px; margin: 10px;"></a>
-                    </span>
                     {{ __('Add Room') }}
                 </div>
 
@@ -57,7 +54,7 @@
                         </div>
 
                         <div class="d-flex justify-content-end">
-                            <a href="{{route('admin.rooms.index')}}" class="btn btn-light btn-link mx-1">Cancel</a>
+                            <a href="{{route('admin.rooms.index')}}" class="btn btn-warning">Cancel</a>
                             <input type="submit" name="" class="btn btn-primary">
                         </div>
                     </form>

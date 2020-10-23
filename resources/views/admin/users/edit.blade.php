@@ -6,10 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <span class="" style="height: 50px; width: 50px;  display: inline-block;">
-                        <a href="{{ route('admin.users.index') }}"><img src="/svg/back.svg" style="max-height: 30px; margin: 10px;"></a>
-                    </span>
-                    {{ __('Edit User') }} {{ $user->name }}
+                    Edit
                 </div>
 
 
@@ -57,7 +54,7 @@
                         </div>
                           <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <a href="{{route('admin.users.index')}}" class="btn btn-light btn-link mx-1">Cancel</a>
+                                <a href="{{route('admin.users.index')}}" class="btn btn-warning">Cancel</a>
                                 <button type="submit" class="btn btn-primary">
                                     Update
                                   </button>

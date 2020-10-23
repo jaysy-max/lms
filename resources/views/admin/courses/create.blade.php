@@ -29,8 +29,8 @@
                         </div>
                      
                         <div class="d-flex justify-content-end">
-                            <a href="{{route('admin.courses.index')}}" class="btn btn-light btn-link mx-1">Cancel</a>
-                            <input type="submit" name="" class="btn btn-primary">
+                            <a href="{{route('admin.courses.index')}}" class="btn btn-warning">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>
                 </div>
