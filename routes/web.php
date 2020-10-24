@@ -63,6 +63,9 @@ Route::get('download/{download}', 'Teacher\FileController@download')->name('down
 Route::get('teacher/rooms/{room}/uploadFile/create', 'Teacher\FileController@create')->middleware('can:teacher-content')->name('teacher.uploadFile.create');
 Route::post('teacher/rooms/{room}/uploadFile', 'Teacher\FileController@store')->middleware('can:teacher-content')->name('teacher.uploadFile.store');
 
+Route::resource('/profiles', 'ProfileController')->except('create','store');
+Route::get('admin/users/{user}/profile/create', 'ProfileController@create')->name('profiles.create');
+Route::post('admin/users/{user}/profile', 'ProfileController@store')->name('profiles.store');
 
 
 
