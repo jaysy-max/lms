@@ -48,9 +48,7 @@ class FileController extends Controller
         $data=new File;
         if($request->file('file')){
             $path = $request->file('file')->store('uploads', 'public');
-            // $file=$request->file('file');
-            // $filename=time().'.'.$file->getClientOriginalExtension();
-            // $request->file->move('storage/',$filename);
+      
 
             $data->file = $path;
         }

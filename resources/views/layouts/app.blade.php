@@ -76,7 +76,13 @@
                                     <a class="dropdown-item" href="{{ route('student.index') }}">Student Dashboard</a>
                                     @endcan
 
-                                    <a class="dropdown-item" href="#">Profile</a>
+                                    
+
+                                    @if(Auth::user()->profile)         
+                                        <a class="dropdown-item" href="{{ route('profiles.show',  Auth::user()) }}">Profile</a>        
+                                    @else
+                                        <a class="dropdown-item" href="{{ route('profiles.create',  Auth::user()) }}">Profile</a>        
+                                    @endif
 
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
