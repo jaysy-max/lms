@@ -14,7 +14,7 @@
 
   <div class="row">
     <div class="col-md-12">
-                      <table class="table">
+                      <table class="table" id="datatable">
                         <thead class="thead-dark">
                           <tr>
                           <th>#</th>

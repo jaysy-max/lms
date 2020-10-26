@@ -4,16 +4,19 @@
 
 
 @can('teacher-content')
+<div class="container">
+
+<div class="row">
+    <div class="col-md-12 d-flex my-3">
+      <a href="{{ route('teacher.rooms.create') }}" class="ml-auto btn btn-success">Add</a>
+    </div>
+  </div>
+
 
 <div class="row justify-content-center">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-header">{{ __('Dashboard Teacher') }}
-
-                <span class="float-right" style="height: 50px; width: 50px;  display: inline-block;">
-                    <a href="{{ route('teacher.rooms.create') }}"><img src="/svg/plus-solid.svg" style="max-height: 30px; margin: 10px;"></a>
-                </span>
-            </div>
+            <div class="card-header">Dashboard</div>
 
 
         </div>
@@ -40,6 +43,6 @@
 
     </div>
 </div>
-
+</div>
 @endcan
 @endsection

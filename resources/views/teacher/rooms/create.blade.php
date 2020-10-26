@@ -2,14 +2,18 @@
 
 @section('content')
 <div class="container">
+
+<div class="row">
+    <div class="col-md-12 d-flex my-3">
+      <a href="{{ route('teacher.index') }}" class="btn btn-primary">Dashboard</a>
+    </div>
+</div>
+
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <span class="" style="height: 50px; width: 50px;  display: inline-block;">
-                        <a href="{{ url()->previous() }}"><img src="/svg/back.svg" style="max-height: 30px; margin: 10px;"></a>
-                    </span>
-                    {{ __('Add Room') }}
+                    Add Room
                 </div>
 
 
@@ -18,7 +22,7 @@
                         @csrf
                         <div class="form-group">
                             <label>Room Name</label>
-                            <input type="text" name="name" class="form-control" required>
+                            <input type="text" name="name" class="form-control" placeholder="Room Name" required>
                         </div>
                         <div class="form-group">
                             <label>Course</label>
@@ -55,7 +59,7 @@
                         </div>
 
                         <div class="d-flex justify-content-end">
-                            <a href="{{ url()->previous() }}" class="btn btn-light btn-link mx-1">Cancel</a>
+                            <a href="{{ url()->previous() }}" class="btn btn-warning">Cancel</a>
                             <input type="submit" name="" class="btn btn-primary">
                         </div>
                     </form>
