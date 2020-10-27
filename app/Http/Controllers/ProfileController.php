@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Profile;
 use App\User;
+use App\Degree;
 
 class ProfileController extends Controller
 {
@@ -26,12 +27,12 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(User $user)
+    public function create(User $user,Degree $degree)
     {
-        
-        return view('profiles.create',compact('user'));
+        $degree = Degree::all();
+        return view('profiles.create',compact('user','degree'));
     }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -51,6 +52,7 @@ class ProfileController extends Controller
             }
             $profile->user_id=Auth::id();
             $profile->name=$request->name;
+            $profile->degree=$request->degree;
             $profile->email=$request->email;
             $profile->address=$request->address;
             $profile->contact=$request->contact;
@@ -77,9 +79,10 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Profile $profile,Degree $degree)
     {
-        //
+        $degree = Degree::all();
+        return view('profiles.edit', compact('profile','degree'));
     }
 
     /**
@@ -89,9 +92,25 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Profile $profile)
     {
-        //
+            
+            if($request->file('avatar')){
+                $path = $request->file('avatar')->store('avatars', 'public');
+          
+    
+                $profile->avatar = $path;
+            }
+            $profile->user_id=Auth::id();
+            $profile->name=$request->name;
+            $profile->degree=$request->degree;
+            $profile->email=$request->email;
+            $profile->address=$request->address;
+            $profile->contact=$request->contact;
+            $profile->save();
+            return redirect(route('profiles.show',$profile));
+    
+        
     }
 
     /**
