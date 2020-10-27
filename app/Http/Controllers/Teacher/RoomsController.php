@@ -106,7 +106,7 @@ class RoomsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Room $room)
-    { 
+    {
         $this->validate($request, [
             'name' => 'required',
             'course' => 'required',

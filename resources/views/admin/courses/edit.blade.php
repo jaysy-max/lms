@@ -24,7 +24,7 @@
                             <label>Degree</label>
                             <select class="form-control" name="degree" value="" required>
                                 <option selected hidden disabled value="">Select Degree</option>
-                                @foreach($degree as $degree)
+                                @foreach($degrees as $degree)
                                     <option value="{{$degree->name}}">{{$degree->name}}</option>
                                 @endforeach
                             </select>

@@ -21,15 +21,6 @@
                             <input type="text" name="name" class="form-control" value="{{$user->name}}" readonly>
                         </div>
                         <div class="form-group">
-                            <label>Degree</label>
-                            <select class="form-control" name="degree" value="" required>
-                                <option selected hidden disabled value="">Select Degree</option>
-                                @foreach($degree as $degree)
-                                    <option value="{{$degree->name}}">{{$degree->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
                             <label>Email</label>
                             <input type="text" name="email" class="form-control" value="{{$user->email}}" readonly>
                         </div>
@@ -44,7 +35,7 @@
                         </div>
                         <div class="input-group control-group increment" >
                             <input type="file" name="avatar" class="form-control">
-                        </div>
+                          </div>
                         <div class="d-flex justify-content-end">
                             <input type="submit" name="" class="btn btn-primary">
                         </div>
