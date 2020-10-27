@@ -17,6 +17,7 @@ class CreateProfilesTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('name');
+            $table->string('degree');
             $table->string('email');
             $table->string('avatar')->default('avatars/user.jpg');
             $table->string('address');
