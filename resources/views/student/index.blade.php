@@ -4,20 +4,18 @@
 
 
         @can('student-content')
+<div class="container">
+
+<div class="row">
+    <div class="col-md-12 d-flex my-3">
+      <a href="{{ route('student.joins.create') }}" class="ml-auto btn btn-success">Add</a>
+    </div>
+  </div>
 
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-header">
-
-                                <span style="font-size: 20px;">
-                                    {{ __('Students Dashboard') }}
-                                </span>
-
-                                <span class="float-right" style="height: 50px; width: 50px;  display: inline-block;">
-                                    <a href="{{ route('student.joins.create') }}"><img src="/svg/plus-solid.svg" style="max-height: 30px; margin: 10px;"></a>
-                                </span>
-                            </div>
+                            <div class="card-header">Dashboard</div>
 
                             <div class="card-body">
 
@@ -43,6 +41,6 @@
                         </div>
                     </div>
                 </div>
-
+                </div>
         @endcan
 @endsection

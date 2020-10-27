@@ -1,0 +1,12 @@
+#zoom {
+
+  transition: transform .2s; /* Animation */
+
+}
+
+#zoom:hover {
+transform: scale(1.05);
+-webkit-box-shadow: 12px 12px 20px -9px rgba(41,41,41,1);
+-moz-box-shadow: 12px 12px 20px -9px rgba(41,41,41,1);
+box-shadow: 12px 12px 20px -9px rgba(41,41,41,1);
+}

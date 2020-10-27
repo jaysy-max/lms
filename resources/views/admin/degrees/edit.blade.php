@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Edit Degree ') }} {{ $degree->name }}</div>
+                <div class="card-header">
+                    Edit
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{route('admin.degrees.update', $degree)}}">
@@ -20,7 +22,7 @@
                             <input type="text" name="acronym" class="form-control" value="{{$degree->acronym}}" required>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <a href="{{route('admin.degrees.index')}}" class="btn btn-light btn-link mx-1">Cancel</a>
+                            <a href="{{route('admin.degrees.index')}}" class="btn btn-warning">Cancel</a>
                             <input type="submit" name="" class="btn btn-primary">
                         </div>
                     </form>
