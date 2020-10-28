@@ -27,20 +27,6 @@
                                         <label>Room Key</label>
                                         <input type="text" name="roomKey" class="form-control"  placeholder="Room Key" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Name</label>
-                                        <input type="text" name="name" class="form-control" placeholder="Name" required>
-                                    </div>
-
-                                    <label>Room ID</label>
-                                    <div class="form-group">
-                                        <input type="text" name="room_id" class="form-control" placeholder="Room ID" required><br />
-                                    </div>
-
-
-
-
-
                                     <div class="d-flex justify-content-end">
                                         <a href="{{ url()->previous() }}" class="btn btn-warning">Cancel</a>
                                         <input type="submit" name="" class="btn btn-primary">

@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-md-12 d-flex my-3">
-      <a href="{{ route('student.joins.create') }}" class="ml-auto btn btn-success">Add</a>
+      <a href="{{ route('student.joins.create',$room ?? '') }}" class="ml-auto btn btn-success">Add</a>
     </div>
   </div>
 

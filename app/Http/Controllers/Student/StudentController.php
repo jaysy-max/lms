@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Join;
+use App\Room;
 
 class StudentController extends Controller
 {
@@ -26,9 +27,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-
-
-
+        
         return view('student.index', ['joins' => Join::where('user_id', Auth::id())->get() ]);
     }
 }

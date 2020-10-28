@@ -38,7 +38,7 @@ class JoinsController extends Controller
      */
     public function create(Room $room)
     {
-
+        return $room;
         $room = Room::all();
         return view('student.joins.create', compact('room'));
     }
@@ -48,16 +48,12 @@ class JoinsController extends Controller
 
         $this->validate($request, [
             'user_id' => 'required',
-            'roomKey' => 'required',
-            'name' => 'required',
-            'room_id' => 'required'
+            'roomKey' => 'required'
         ]);
 
         Join::create([
             'user_id' => $request->user_id,
-            'roomKey' => $request->roomKey,   
-            'name' => $request->name,
-            'room_id' => $request->room_id
+            'roomKey' => $request->roomKey
         ]);
 
         return redirect(route('student.index'));

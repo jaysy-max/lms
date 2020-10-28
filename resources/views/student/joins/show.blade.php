@@ -17,7 +17,6 @@
                                <tr></tr>
                                    <th>Title</th>
                                    <th>Desciption</th>
-                                   <th>File</th>
                                    <th>Actions</th>
                                </tr>
                            </thead>
@@ -26,7 +25,6 @@
                                 <tr>
                                     <td>{{ $data->title }}</td>
                                     <td>{{ $data->description }}</td>
-                                    <td>{{ $data->file }}</td>
                                         <td>
                                             <a href="{{route('downloadFile', $data)  }}" class="btn btn-success" >Download</a>
                                         </td>

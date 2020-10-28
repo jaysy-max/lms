@@ -14,11 +14,19 @@
                     <div class="">
                         <strong><h2>{{ $room->name}}</h2></strong>
                         <h5>{{ $room->course }}</h5>
-                        <h5>First {{ $room->year }}/ Block {{ $room->block }}</h5>
-                        <h6>Class Code: {{ $room->roomKey }}</h6>
+                        <h5> {{ $room->year }} Year/ Block {{ $room->block }}</h5>
+                        <h6>Class Code: {{ $room->roomKey }} </h6>
                         <a href="{{ route('teacher.rooms.edit', $room) }}" type="button" class="btn btn-primary float-right">Edit</a>
-                        <a href="{{ route('teacher.uploadFile.create', $room) }}" type="button" class="btn btn-primary float-right mr-1">Upload</a>
-
+                        {{--<a href="{{ route('teacher.uploadFile.create', $room) }}" type="button" class="btn btn-primary float-right mr-1">Upload</a>--}}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle float-right" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             Create
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="{{ route('teacher.uploadFile.create', $room) }}">MATERIAL</a>
+                              <a class="dropdown-item" href="#">ASSESSMENT</a>
+                            </div>
+                          </div>
                     </div>
 
 
