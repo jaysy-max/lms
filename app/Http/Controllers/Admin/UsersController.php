@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
@@ -52,8 +53,7 @@ class UsersController extends Controller
         $user=User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password
-
+            'password' => Hash::make($request['password'])
         ]);
 
         $role = Role::select('id')->where('name', 'teacher')->first();

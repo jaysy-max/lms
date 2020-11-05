@@ -1,62 +1,73 @@
-@extends('layouts.app')
+@extends('layouts.app-2')
 
 @section('content')
+<!-- Begin Page Content -->
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Edit ') }} {{ $room->name }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{route('teacher.rooms.update', $room)}}">
-                        @csrf
-                        @method('PUT')
-
-                        <div class="form-group">
-                            <label>Room Name</label>
-                            <input type="text" name="name" class="form-control" value="{{$room->name}}" required>
-                        </div>
-                        <div class="form-group">
-
-                            <label>Course</label>
-                            <select class="form-control" name="course" value="" required>
-                                <option selected hidden disabled value="">Select Course</option>
-                                @foreach($courses as $course)
-                                    <option value="{{$course->courseCode}}">{{$course->courseDesc}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Year</label>
-
-                            <select name="year" class="form-control" value="" required>
-                                <option selected hidden disabled value="">Select Year</option>
-                                <option value="1st">1st</option>
-                                <option value="2nd">2nd</option>
-                                <option value="3rd">3rd</option>
-                                <option value="4th">4th</option>
-                                <option value="5th">5th</option>
-                              </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Block</label>
-                            <input type="text" name="block" class="form-control" value="{{$room->block}}" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Room Key</label>
-                            <input type="text" name="roomKey" class="form-control" value="{{$room->roomKey}}" required>
-                        </div>
-
-                        <div class="d-flex justify-content-end">
-                            <a href="{{ url()->previous() }}" class="btn btn-light btn-link mx-1">Cancel</a>
-                            <input type="submit" name="" class="btn btn-primary">
-                        </div>
-                    </form>
 
 
+
+<div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Edit Room</h1>
+              </div>
+              <form method="POST" action="{{route('teacher.rooms.update', $room)}}">
+                @csrf
+                @method('PUT')
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" name="name" value="{{$room->name}}" required>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <select class="form-control form-control-user" name="course" required>
+                        <option selected hidden disabled value="">Select Course</option>
+                        @foreach($courses as $course)
+                            <option value="{{$course->courseDesc}}">{{$course->courseDesc}}</option>
+                        @endforeach
+                    </select>
+                  
+                  </div>
                 </div>
+                <div class="form-group row">
+                  <div class="col-sm-4 mb-3 mb-sm-0">
+                  <select class="form-control form-control-user" name="year" value="{{$course->year}}" required>
+                    <option>1st</option>
+                    <option>2nd</option>
+                    <option>3rd</option>
+                    <option>4th</option>
+                    <option>5th</option>
+                  </select>
+                  </div>
+                  <div class="col-sm-4 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" name="block" value="{{$room->block}}" required>
+                  </div>
+                  <div class="col-sm-4 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" name="roomKey" value="{{$room->roomKey}}" required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                  <input type="text" class="form-control form-control-user" name="professor"  value="{{$room->user_id}}" required>
+                  </div>
+                </div>
+                <input type="submit" name="" class="btn btn-primary btn-user btn-block">
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+
+
+
+
+
 </div>
+<!-- /.container-fluid -->
+
 @endsection

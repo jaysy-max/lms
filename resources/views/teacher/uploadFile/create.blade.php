@@ -1,49 +1,52 @@
-@extends('layouts.app')
+@extends('layouts.app-2')
 
 @section('content')
+<!-- Begin Page Content -->
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <span class="" style="height: 50px; width: 50px;  display: inline-block;">
-                        <a href="{{ route('teacher.index') }}"><img src="/svg/back.svg" style="max-height: 30px; margin: 10px;"></a>
-                    </span>
-                </div>
-
-
-                <div class="card-body">
-                    <div class="container">
 
 
 
-                  <form method="post" action="{{route('teacher.uploadFile.store', $room)}}" enctype="multipart/form-data">
-                    {{csrf_field()}}
-
-
-
-                    <div class="form-group">
-                      <label>Title</label>
-                      <input type="text" name="title" class="form-control" placeholder="Title" required>
+<div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Upload Material</h1>
+              </div>
+              <form method="post" action="{{route('teacher.uploadFile.store', $room)}}" enctype="multipart/form-data">
+                {{csrf_field()}}
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" name="title" placeholder=" Title">
                   </div>
-                  <div class="form-group">
-                      <label>Description</label>
-                      <input type="text" name="description" class="form-control" placeholder="Description" required>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control form-control-user" name="description" placeholder="Desciption">
                   </div>
-                          <div class="input-group control-group increment" >
-                            <input type="file" name="file" class="form-control">
-                          </div>
-
-
-                          <button type="submit" class="btn btn-primary" style="margin-top:10px">Submit</button>
-                         
-
-                    </form>
-                    </div>
-
                 </div>
+                <div class="form-group row">
+                    <div class="col sm 12"><input type="file" name="file" class="form-control"></div>
+                </div>
+             
+  
+                
+                <button type="submit" class="btn btn-primary btn-user btn-block" style="margin-top:10px">Upload</button>
+
+              </form>
+
+
             </div>
+          </div>
         </div>
+      </div>
     </div>
+
+
+
+
+
 </div>
+<!-- /.container-fluid -->
+
 @endsection

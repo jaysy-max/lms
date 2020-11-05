@@ -1,63 +1,65 @@
-@extends('layouts.app')
+@extends('layouts.app-2')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <span class="" style="height: 50px; width: 50px;  display: inline-block;">
-                        <a href="{{ route('teacher.index') }}"><img src="/svg/back.svg" style="max-height: 30px; margin: 10px;"></a>
-                    </span>
-                    {{ __('Room') }}
-                </div>
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-
-                <div class="card-body">
-
-                    <table class="table" id="datatable">
-                      <thead>
-                        <tr>
-                          <th scope="col">#</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Course</th>
-                          <th scope="col">Year</th>
-                          <th scope="col">Block</th>
-                          <th scope="col">Room Key</th>
-                          <th scope="col">Professor</th>
-
-                          <th scope="col">Action</th>
-                        </tr>
-                        <a href="{{ route('teacher.rooms.create') }}" type="button" class="btn btn-primary float-right" style="margin-bottom: 5px;">Add Rooms</a>
-                      </thead>
-                      <tbody>
-                        @foreach($rooms as $room)
-                        <tr>
-                            <th scope="row">{{ $room->id}}</th>
-                            <td>{{ $room->name}}</td>
-                            <td>{{ $room->course}}</td>
-                            <td>{{ $room->year}}</td>
-                            <td>{{ $room->block}}</td>
-                            <td>{{ $room->roomKey}}</td>
-                            <td>{{ $room->user_id}}</td>
-                            <td>
-                                <a href="{{ route('teacher.rooms.edit', $room) }}" type="button" class="btn btn-primary float-left">Edit</a>
-                                <form action="{{ route('teacher.rooms.destroy', $room) }}" method="POST" class="float-left">
-                                    @csrf
-                                    {{ method_field('DELETE') }}
-                                    <button type="submit" class="btn btn-warning" >Delete</button>
-                                </form>
-                            </td>
-                          </tr>
-
-                         @endforeach
-
-                      </tbody>
-
-                    </table>
-                </div>
-            </div>
-        </div>
+<!-- Users -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Rooms</h6>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Year</th>
+            <th>Block</th>
+            <th>Room Key</th>
+            <th>Professor</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Year</th>
+            <th>Block</th>
+            <th>Room Key</th>
+            <th>Professor</th>
+            <th>Action</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          @foreach($rooms as $room)
+            <tr>
+              <td>{{ $room->name}}</td>
+              <td>{{ $room->course}}</td>
+              <td>{{ $room->year}}</td>
+              <td>{{ $room->block}}</td>
+              <td>{{ $room->roomKey}}</td>
+              <td>{{ $room->user_id}}</td>
+              <td>
+                <a href="{{ route('teacher.rooms.edit', $room) }}" type="button" class="btn btn-primary btn-sm btn-block">Edit</a>
+                <form action="{{ route('teacher.rooms.destroy', $room) }}" method="POST">
+                  @csrf
+                  {{ method_field('DELETE') }}
+                  <button type="submit" class="btn btn-danger btn-sm btn-block" >Delete</button>
+                </form>
+              </td>
+            </tr>
+          @endforeach
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
+
+</div>
+<!-- /.container-fluid -->
+
 @endsection

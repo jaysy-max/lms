@@ -1,48 +1,40 @@
-@extends('layouts.app')
+@extends('layouts.app-2')
 
 @section('content')
-
-
-@can('teacher-content')
+<!-- Begin Page Content -->
 <div class="container">
 
-<div class="row">
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Teacher Dashboard</h1>
+  </div>
+  <div class="row">
     <div class="col-md-12 d-flex my-3">
       <a href="{{ route('teacher.rooms.create') }}" class="ml-auto btn btn-success">Add</a>
     </div>
   </div>
-
-
-<div class="row justify-content-center">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header">Dashboard</div>
-
-
-        </div>
-
-            <div class="card-bodycontentBody mt-2 row row-cols-1 row-cols-md-3">
-              @foreach($rooms as $room)
-              <div class="col-md-4">
-                <div class="card mb-4 shadow-sm text-white bg-primary" >
-                  <div class="card-body">
-                    <h3>{{ $room->name}}</h3>
-                    <p class="card-text">{{ $room->roomKey}}</p><div class="btn-group">
-                        <a href="{{ route('teacher.rooms.show', $room) }}" type="button" class="btn btn-outline-light">View</a>
+        <div class="row">
+          @foreach($rooms as $room)
+          <div class="col-md-6 my-1">
+            <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $room->name}} | 
+                          <span>{{ $room->course}}</span>
                       </div>
-                  </div>
+                        <div class="text-xs font-weight-bold text-primary mb-1">{{ $room->roomKey}}</div>
+                    </div>
+                    <div class="col-auto">
+                      <a href="{{ route('teacher.rooms.show', $room) }}" class="btn btn-primary">view</a>
+                    </div>
                 </div>
               </div>
-
-                    </a>
-                @endforeach
-
             </div>
-
-
-
-    </div>
+          </div>
+          @endforeach
+        </div>
 </div>
-</div>
-@endcan
+<!-- /.container-fluid -->
+
 @endsection

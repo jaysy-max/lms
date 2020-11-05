@@ -38,7 +38,7 @@ class JoinsController extends Controller
      */
     public function create(Room $room)
     {
-        return $room;
+        
         $room = Room::all();
         return view('student.joins.create', compact('room'));
     }

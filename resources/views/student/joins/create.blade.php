@@ -1,42 +1,59 @@
-@extends('layouts.app')
+@extends('layouts.app-2')
 
 @section('content')
-@can('student-content')
+<!-- Begin Page Content -->
 <div class="container">
-<div class="row">
-    <div class="col-md-12 d-flex my-3">
-      <a href="{{ route('student.index') }}" class="btn btn-primary">Dashboard</a>
+
+
+
+<div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Join Room</h1>
+              </div>
+              <form class="user">
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Room Key">
+                  </div>
+
+                  <div class="col-sm-6">
+                  <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Room ID">
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <div class="col-sm-12">
+                  <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Name">
+                  </div>
+                </div>
+
+              
+
+                <a href="" class="btn btn-primary btn-user btn-block">
+                  Register Room
+                </a>
+
+
+              </form>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+
+
+
+
 </div>
+<!-- /.container-fluid -->
 
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">Join Room
-
-                            </div>
-
-                            <div class="card-body">
-                                <form method="POST" action="{{route('student.joins.store')}}">
-                                    @csrf
-
-                                    <div class="form-group">
-                                        <input type="hidden" name="user_id" value="{{Auth::id()}}"><br />
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Room Key</label>
-                                        <input type="text" name="roomKey" class="form-control"  placeholder="Room Key" required>
-                                    </div>
-                                    <div class="d-flex justify-content-end">
-                                        <a href="{{ url()->previous() }}" class="btn btn-warning">Cancel</a>
-                                        <input type="submit" name="" class="btn btn-primary">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                </div>
-        @endcan
 @endsection
