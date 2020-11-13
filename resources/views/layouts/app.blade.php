@@ -20,13 +20,13 @@
 
 </head>
 
-<body class="bg-gradient-dark">
+<body class="bg-secondary">
 
 <div class="container">
 
-        
+
             @yield('content')
-        
+
 
 </div>
 
@@ -38,6 +38,8 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{{ asset('js/sb-admin-2.js') }}"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
 
 </body>
