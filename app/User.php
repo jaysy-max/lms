@@ -37,24 +37,43 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-     public function roles(){
+    public function roles()
+    {
         return $this->belongsToMany('App\Role');
     }
-    public function hasAnyRoles($roles){
-        if($this->roles()->whereIn('name', $roles)->first()){
-            return true;
 
+    public function hasAnyRoles($roles)
+    {
+        if($this->roles()->whereIn('name', $roles)->first())
+        {
+            return true;
         }
+
         return false;
     }
-    public function hasRole($role){
-        if($this->roles()->where('name', $role)->first()){
-            return true;
 
+    public function hasRole($role)
+    {
+        if($this->roles()->where('name', $role)->first())
+        {
+            return true;
         }
+
         return false;
     }
-    public function profile(){
+
+    public function profile()
+    {
     	return $this->hasOne('App\Profile');
+    }
+
+    public function rooms()
+    {
+        return $this->belongsToMany(Room::class)->withTimestamps();
+    }
+
+    public function joinRoom($room)
+    {
+        $this->rooms()->sync($room);
     }
 }

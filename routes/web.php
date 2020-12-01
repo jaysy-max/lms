@@ -46,6 +46,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:admi
 
 
 Route::namespace('Teacher')->prefix('teacher')->name('teacher.')->middleware('can:teacher-content')->group(function(){
+    
     Route::resource('/rooms', 'RoomsController');
     Route::resource('/uploadFile', 'FileController')->except('create', 'store');
     Route::resource('/', 'TeacherController');
@@ -57,6 +58,7 @@ Route::namespace('Student')->prefix('student')->name('student.')->middleware('ca
     Route::resource('/', 'StudentController');
 });
 
+Route::resource('teacher/rooms.announcements', 'AnnouncementController')->shallow();
 
 Route::get('download/{download}', 'Teacher\FileController@download')->name('downloadFile');
 
